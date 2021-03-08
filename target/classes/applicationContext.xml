@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+
+    <bean id="musicBean"
+          class="Spring.DependInjection.AllMusic">
+    </bean>
+    <bean id="RockBean"
+          class="Spring.DependInjection.RockMusic">
+    </bean>
+    <bean id="RapBean"
+          class="Spring.DependInjection.RapMusic">
+    </bean>
+    <bean id="ClassicalBean"
+          class="Spring.DependInjection.ClassicalMusic">
+    </bean>
+
+    <bean id="musicPlayer"
+          class="Spring.DependInjection.MusicPlayer">
+        <property name="music" ref="musicBean"/>
+        <property name="nameSong" value="${musicPlayer.nameSong}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
+
+        <property name="musicList">
+            <list>
+                <ref bean="RockBean"/>
+                <ref bean="RapBean"/>
+                <ref bean="ClassicalBean"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>
