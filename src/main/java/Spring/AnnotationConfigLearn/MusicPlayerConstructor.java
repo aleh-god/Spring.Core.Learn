@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class MusicPlayerConstructor {
 
-    private RockMusic rockMusic;
-    private ClassicalMusic classicalMusic;
+    private Music rockMusic;
+    private Music classicalMusic;
 
     @Autowired
-    public MusicPlayerConstructor(RockMusic rockMusic, ClassicalMusic classicalMusic) {
+    public MusicPlayerConstructor(Music rockMusic, Music classicalMusic) {
         this.rockMusic = rockMusic;
         this.classicalMusic = classicalMusic;
     }

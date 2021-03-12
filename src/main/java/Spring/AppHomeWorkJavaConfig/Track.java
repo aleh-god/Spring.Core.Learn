@@ -1,6 +1,4 @@
-package Spring.AppHomeWork;
-
-import org.springframework.stereotype.Component;
+package Spring.AppHomeWorkJavaConfig;
 
 
 public class Track {

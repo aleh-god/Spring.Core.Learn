@@ -1,36 +1,36 @@
-package Spring.AppHomeWork;
+package Spring.AppHomeWorkAnnot;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component("musicPlayer")
+@Component
 public class MusicPlayer {
 
-//    @Autowired
+    @Autowired
     private ClassicalMusic classMusic;
-//    @Autowired
+    @Autowired
     private RockMusic rockMusic;
-//    @Autowired
-//    @Value("${musicPlayer.volume}")
+    @Autowired
+    @Value("${musicPlayer.volume}")
     private int volume;
 
-    private typeMusic tMusic;
-
 //    public MusicPlayer() {}
-
-    @Autowired
-    public MusicPlayer(
-            @Qualifier("classicalMusic") ClassicalMusic classMusic,
-            @Qualifier("rockMusic") RockMusic rockMusic) {
-        this.classMusic = classMusic;
-        this.rockMusic = rockMusic;
-    }
-
-//        public void setMusic(Music classMusic, Music rockMusic) {
+//    public MusicPlayer(
+//            ClassicalMusic classMusic,
+//            RockMusic rockMusic) {
 //        this.classMusic = classMusic;
 //        this.rockMusic = rockMusic;
 //    }
+
+
+    public void setClassMusic(ClassicalMusic classMusic) {
+        this.classMusic = classMusic;
+    }
+
+    public void setRockMusic(RockMusic rockMusic) {
+        this.rockMusic = rockMusic;
+    }
 
     public int getVolume() {
         return volume;
